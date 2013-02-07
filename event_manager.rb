@@ -134,7 +134,6 @@ class DataFile
 		end
 	end
 
-	#Load file
 	def load_file
 		contents = CSV.read @current_file_path
 		headers = contents.shift.collect {|i| i.to_s.downcase }
@@ -196,19 +195,14 @@ def help_user(command)
 end
 
 def run
-
-	# New Objects
 	queue = Queue.new
 	data_file = DataFile.new
-	# Get Input
 	command = ""
 	while command != "quit"
 		printf "Enter command: "
-		# Store Input
 		input = gets.chomp
 		parts = input.split(" ")
 		command = parts[0]
-		# Work That Input
 		case command
 			when 'quit' then puts "Goodbye"
 			when 'queue' then queue.command(parts[1], parts[-1])
