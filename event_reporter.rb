@@ -1,7 +1,7 @@
 ###
 # EventReporter
 # by Kyle Suss
-# Completed 2/2/13
+# Completed 2/7/13
 ###
 
 require "csv"
@@ -130,7 +130,7 @@ class DataFile
 		elsif user_file_input[-4..-1] == ".csv" && File.exists?(user_file_input)
 			@current_file_path = user_file_input
 		else
-			puts "Load a file that actually exists, dumbass."
+			puts "Load a file that actually exists, dumbass!"
 		end
 	end
 
@@ -165,7 +165,7 @@ class DataFile
 
 	def find_in_file(attribute, criteria)
 		if @current_file_path.nil?
-			puts "Load a file, idiot."
+			puts "Load a file, idiot!"
 		else
 			@people.select{|person| person[attribute].match(/^\s?#{(criteria)}\s?$/i)}
 		end
